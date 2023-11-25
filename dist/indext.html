@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" >
+
+    <title>Imam Ali Quotes</title>
+</head>
+<body background="images/najaf.png" class="bg-blue-100 flex items-center justify-center h-screen">
+    <div id="app" class="p-8 rounded-lg shadow-md bg-white max-w-md w-full text-center">
+        <h2 class="text-base italic">Imam Ali ibn Abi Talib(A.S) says</h2><br>
+        
+        <p id="quote" class="text-2xl leading-relaxed font-serif text-gray-800">"Seek knowledge from the cradle to the grave."</p>
+        <div class="flex items-center justify-center">
+            <button onclick="getRandomQuote()" id="quoteButton" class="mt-4 px-4 py-2 mr-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none">Next Quote</button>
+            <button onclick="tweet()" id="tweetButton" class="mt-4 flex items-center  px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"> Post on  <img src="images/x.png" class=" ml-2 mr-[10px] w-[20px]"></button>
+        </div>
+    </div>
+    
+    <script>
+        // quotes.js
+const quotes = [
+    "Seek knowledge from the cradle to the grave.",
+    "The most complete gift of God is a life based on knowledge", "The innumerable fools have made the learned very scarce", "The learned man understands the ignorant, for he was once ignorant himself", "The ignorant man does not understand the learned, for he has never been learned himself", "Knowledge gives life to the soul", "To respect the learned is to respect God", "Knowledge creates fear of God", "Practice makes knowledge perfect", "To teach is to learn", "Honesty is Divine language", "To fulfill promises is the highest form of integrity", "Truth means conformity of speech with the Divine mode of working", "Friendship is impossible with a liar", "Misrepresentation spoils narration",  "Enmity is the occupation of fools", "One's obedience to God is proportionate to one's wisdom", "To fight against one's own desires is the highest wisdom", "The wise aim at perfection.The foolish aim at wealth", "To separate oneself from things of time and to connect oneself with things of eternity is the highest wisdom", "He is really wise whose actions reflect his words", "Humility is the product of knowledge", "Self-conceit poisons the mind.Self-conceit impedes progress",  "Humility is one of the nets spread by real greatness", "Giving relief to the distressed and helping the oppressed are means for atonement for great sins", "The best way to serve God is not to make a show of it", "A virtuous person is better than the virtue, and a vicious person is worse than the vice", "The best wealth is to give up excessive desires", "A wise person thinks before he speaks, whereas a fool speaks before he thinks", "The sin that makes you sad and repentant is liked by God more than the good deed that makes you vain", "The Real (act of) forgiveness is to forgive while having power to punish", "There is no greater wealth than wisdom and no greater poverty than ignorance. There is no greater heritage than good manners and no greater support than consultation", "Patience is of two kinds; patience over what hurts you and patience against your (unfulfilled) desires", "Wealth is the fountainhead of passions", "Return greetings with greater warmth. Repay favor with what is more. The initiator of a favor deserves greater merit", "The wiser a person, the less he talks", "Every breath of yours is one more step towards death", "I wonder at the person who loses hope of salvation, while the door of repentance is still open",  "No wealth is more profitable than wisdom", "No trait is more useful than politeness", "No heritage is better than good manners", "No eminence is greater than humility", "I wonder at a miser who chooses to live like a destitute, but in the next world will have to give account like a rich person", "I wonder at the arrogant and vain person. Yesterday he was only a lowly sperm, and tomorrow he will be a corpse", "I wonder at the person who observes the universe created by God, yet doubts the existence of God", "I wonder at the person who understands the marvel of the beginning of life, yet refuses to accept that he will be brought back to life again", "I wonder at the man who takes great pains to decorate his temporary habitat (of this world), yet ignores his permanent abode (the Hereafter)", "This world is not a permanent abode. It is like a highway and you are a traveler", "Loving one another is one-half of wisdom", "One who agrees with the action of a group is regarded (by God) as having committed that action", "Greed dulls the faculties of judgment and wisdom", "Every blessing carries a right of God. If one fulfills that right, then the blessing increases, but if one falls short, the blessing might be lost", "Anger is akin to madness, and the person usually repents; if not, then the madness is confirmed", "God, the Glorified, has fixed the livelihood of the poor in the wealth of the affluent. Consequently, when a destitute one remains hungry, it is because some affluent person had denied him (his share). God, the Sublime, will question him (the affluent) about it", "People, Fear God; for a human is not created for naught, to waste oneself away, nor would be left unaccounted to commit nonsensical acts", "Livelihood is of two kinds: The livelihood that you seek and the livelihood that seeks you. Even if you do not seek the latter, it will come to you", "Words are in your control before you utter them, but once you have uttered, you are under their control. Therefore, guard your tongue as you guard your gold and silver. One expression may make you lose a blessing or invite punishment", "Beware, wealth is a blessing; better is the health of the body, and (even) better than health of the body is purity of the heart", "Lovers of God look at the inner side of things (while others look at the outer). They busy themselves with the lasting benefits (of the next world), while others seek immediate (worldly) benefits. They regard accumulation of wealth by others as a matter of lesser importance. They suppress those desires that they fear would hurt them (in the next world)"
+    // Add more quotes here
+];
+
+// Function to get a random quote
+function getRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    const quoteText = document.getElementById('quote');
+    quoteText.textContent = `"${quotes[randomIndex]}"`;
+}
+
+function tweet() {
+    const quoteElement = document.getElementById('quote');
+    const originalQuote = quoteElement.innerText;
+    const quotedText = `"${originalQuote}" ~ Imam Ali ibn Abi Talib`;
+
+    const tweetIntentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(quotedText)}`;
+    window.open(tweetIntentUrl, "Tweet Window", "width=600, height=300");
+}
+
+
+    </script>
+</body>
+</html>
